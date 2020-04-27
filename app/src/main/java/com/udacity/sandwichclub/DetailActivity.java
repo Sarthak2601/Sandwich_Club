@@ -3,7 +3,11 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,10 +22,13 @@ public class DetailActivity extends AppCompatActivity {
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
     TextView placeOfOrigin;
-    TextView alsoKnownAs;
-    TextView ingredients;
     TextView description;
     Sandwich sandwich;
+    LinearLayout knownAsLL;
+    LinearLayout ingredientsLL;
+    TextView placeOfOriginHeading;
+    TextView alsoKnownAsHeading;
+    TextView ingredientsHeading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +37,12 @@ public class DetailActivity extends AppCompatActivity {
 
         ImageView ingredientsIv = findViewById(R.id.image_iv);
         placeOfOrigin = findViewById(R.id.origin_tv);
-        alsoKnownAs = findViewById(R.id.also_known_tv);
-        ingredients = findViewById(R.id.ingredients_tv);
         description = findViewById(R.id.description_tv);
+        knownAsLL = findViewById(R.id.linearLayoutKnownAs);
+        ingredientsLL = findViewById(R.id.linearLayoutIngredients);
+        placeOfOriginHeading = findViewById(R.id.placeOfOrigin);
+        alsoKnownAsHeading = findViewById(R.id.alsoKnownAs);
+        ingredientsHeading = findViewById(R.id.ingredients);
 
         Intent intent = getIntent();
         if (intent == null) {
@@ -69,27 +79,42 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI() {
-        placeOfOrigin.setText(sandwich.getPlaceOfOrigin());
+        if(!sandwich.getPlaceOfOrigin().isEmpty()){
+            placeOfOrigin.setText(sandwich.getPlaceOfOrigin());
+        }
+        else{
+            placeOfOriginHeading.setVisibility(View.GONE);
+            placeOfOrigin.setVisibility(View.GONE);
+        }
+
         description.setText(sandwich.getDescription());
-//        ingredients.setText((CharSequence) sandwich.getIngredients());
-        //alsoKnownAs.setText((CharSequence) sandwich.getAlsoKnownAs());
-
         List<String> alsoKnown = sandwich.getAlsoKnownAs();
-        if(alsoKnown != null) {
-            for (int i = 0; i < alsoKnown.size(); i++) {
-                String value =  alsoKnown.get(i);
-                alsoKnownAs.append(value+"\n");
-            }
-        }
-
+        populateLists(alsoKnown,knownAsLL,alsoKnownAsHeading);
         List<String> ingredientsList = sandwich.getIngredients();
-        if(ingredientsList != null) {
-            for (int i = 0; i < ingredientsList.size(); i++) {
-                String value =  ingredientsList.get(i);
-                ingredients.append(value+"\n");
+        populateLists(ingredientsList,ingredientsLL,ingredientsHeading);
+
+    }
+
+    private void newTextviews(LinearLayout linearLayout, String string){
+        LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+        TextView textView = new TextView(this);
+        textView.setLayoutParams(layoutParams);
+        textView.setText("\u2022 "+string);
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        linearLayout.addView(textView);
+
+
+    }
+
+    private void populateLists(List<String> list,LinearLayout linearLayout, TextView textView){
+        if(!list.isEmpty()) {
+            for (int i = 0; i < list.size(); i++) {
+                String value =  list.get(i);
+                newTextviews(linearLayout,value);
             }
         }
-
-
+        else{
+            textView.setVisibility(View.GONE);
+        }
     }
 }
