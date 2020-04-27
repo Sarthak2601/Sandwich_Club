@@ -71,6 +71,14 @@ public class DetailActivity extends AppCompatActivity {
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     private void closeOnError() {
@@ -101,6 +109,7 @@ public class DetailActivity extends AppCompatActivity {
         textView.setLayoutParams(layoutParams);
         textView.setText("\u2022 "+string);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+        textView.setTextColor(getResources().getColor(android.R.color.white));
         linearLayout.addView(textView);
 
 
@@ -115,6 +124,7 @@ public class DetailActivity extends AppCompatActivity {
         }
         else{
             textView.setVisibility(View.GONE);
+            linearLayout.setVisibility(View.GONE);
         }
     }
 }
