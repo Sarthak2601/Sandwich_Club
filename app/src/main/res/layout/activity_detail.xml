@@ -37,22 +37,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="@string/detail_description_label"
                         android:background="@drawable/solid_background"
+                        android:padding="10dp"
+                        android:text="@string/detail_description_label"
                         android:textColor="@android:color/white"
-                        android:textStyle="normal"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/description_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:background="@drawable/border_background"
-                        android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/border_background"
+                        android:padding="10dp"
                         android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
@@ -67,10 +67,10 @@
                         android:id="@+id/ingredients"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
                         android:background="@drawable/solid_background"
+                        android:padding="10dp"
                         android:text="@string/detail_ingredients_label"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
@@ -80,9 +80,9 @@
                         android:id="@+id/linearLayoutIngredients"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border_background"
                         android:orientation="vertical"
-                        android:padding="10dp"
-                        android:background="@drawable/border_background">
+                        android:padding="10dp">
 
                     </LinearLayout>
 
@@ -98,23 +98,23 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
-                        android:padding="10dp"
                         android:layout_marginBottom="10dp"
+                        android:background="@drawable/solid_background"
+                        android:padding="10dp"
                         android:text="@string/detail_place_of_origin_label"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
-                        android:textStyle="normal"
-                        android:background="@drawable/solid_background"/>
+                        android:textStyle="normal" />
 
                     <TextView
                         android:id="@+id/origin_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:textColor="@android:color/black"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/border_background"
+                        android:padding="10dp"
+                        android:textColor="@android:color/black"
                         android:textSize="16sp" />
 
                 </LinearLayout>
@@ -128,23 +128,22 @@
                         android:id="@+id/alsoKnownAs"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:layout_marginBottom="20dp"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/solid_background"
+                        android:padding="10dp"
                         android:text="@string/detail_also_known_as_label"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
-                        android:textStyle="normal"
-                        android:background="@drawable/solid_background"/>
+                        android:textStyle="normal" />
 
                     <LinearLayout
                         android:id="@+id/linearLayoutKnownAs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/border_background"
                         android:orientation="vertical"
-                        android:padding="10dp"
-                        android:background="@drawable/border_background">
-                    </LinearLayout>
+                        android:padding="10dp"></LinearLayout>
 
                 </LinearLayout>
 
