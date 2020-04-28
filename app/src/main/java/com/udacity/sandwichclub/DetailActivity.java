@@ -109,7 +109,7 @@ public class DetailActivity extends AppCompatActivity {
         textView.setLayoutParams(layoutParams);
         textView.setText("\u2022 "+string);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
-        textView.setTextColor(getResources().getColor(android.R.color.white));
+        textView.setTextColor(getResources().getColor(android.R.color.black));
         linearLayout.addView(textView);
 
 
